@@ -9,6 +9,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '../Client/views'));//show express the views directory
 app.use('/images', express.static(path.join(__dirname, '../Client/images')));
+app.use('/Partials',express.static(path.join(__dirname, '../Client/Partials')));
 
 //routs
 app.get('/',(req,res)=>{
