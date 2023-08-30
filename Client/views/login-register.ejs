@@ -9,11 +9,18 @@
 <body>
     <%- include('../Partials/MainNav.ejs') %>
     
+    Login/Register
     
     
+    <form action="/Login" method="post">
+        <input type="text" name="UserName" placeholder="User Name">
+        <input type="text" name="Password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
     
-    
-    
+    <br>
+
+
     
     <%- include('../Partials/Footer.ejs') %>
 </body>
