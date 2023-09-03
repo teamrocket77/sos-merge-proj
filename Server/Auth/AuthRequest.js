@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-async function Login(username,password) {
+async function LoginReq(username,password) {
     let authResponse = await axios.post("http://127.0.0.1:5000/Login",
     {
         UserName:username,
@@ -13,4 +13,4 @@ async function Login(username,password) {
     return authResponse
 }
 
-module.exports = {Login}
+module.exports = {LoginReq}
