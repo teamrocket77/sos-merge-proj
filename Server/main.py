@@ -1,14 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
+import os
+from dotenv import load_dotenv, dotenv_values
 
+load_dotenv()
 app = Flask(__name__)
-
-
-app.config['MYSQL_HOST'] = 'sso-db.ckpvqjnqymzs.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'AppAccount'
-app.config['MYSQL_PASSWORD'] = 'pLue3472'
-app.config['MYSQL_DB'] = 'SSO'
+print("hello")
+print(os.getenv('USERNAME'))
+app.config['MYSQL_HOST'] = os.getenv('HOST')
+app.config['MYSQL_USER'] = os.getenv('USER')
+app.config['MYSQL_PASSWORD'] = os.getenv('PASS')
+app.config['MYSQL_DB'] = os.getenv('DB')
 
 
 mysql = MySQL(app)
