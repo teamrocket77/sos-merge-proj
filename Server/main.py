@@ -6,8 +6,6 @@ from dotenv import load_dotenv, dotenv_values
 
 load_dotenv()
 app = Flask(__name__)
-print("hello")
-print(os.getenv('USERNAME'))
 app.config['MYSQL_HOST'] = os.getenv('HOST')
 app.config['MYSQL_USER'] = os.getenv('USER')
 app.config['MYSQL_PASSWORD'] = os.getenv('PASS')
