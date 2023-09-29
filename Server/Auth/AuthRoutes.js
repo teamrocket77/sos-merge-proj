@@ -11,7 +11,7 @@ async function Login(req, res){
         res.cookie('Token', 'testVal');
         return res.redirect("/")
     }else{
-        return res.render("login-register")
+        return res.render("Login")
     }
 }
 

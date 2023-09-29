@@ -18,17 +18,24 @@ app.use('/Partials',express.static(path.join(__dirname, '../Client/Partials')));
 
 //Get routs
 app.get('/', verifyToken,(req,res)=>{
-    
+    //Renders the dashboard page
     res.render("dashboard")
 })
-
 app.get("/Login", function(req, res){
-    res.render("login-register")
+    //Renders the Login page
+    res.render("Login")
+})
+app.get("/RegisterOrg", function(req, res){
+    //Renders the Organization register page
+    res.render("RegisterOrg")
+})
+app.get("/RegOrgSuccess", function(req, res){
+    //Renders the register success page after registering an organization
+    res.render("RegOrgSuccess")
 })
 
-
 //Post routs
-app.post("/Login", Login)
+app.post("/Login", Login)//route that logs user in
 
 app.listen(port, ()=>{//server listens on port 3000
     console.log("website hosted on port " + port)
