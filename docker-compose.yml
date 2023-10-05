@@ -1,0 +1,20 @@
+# Use root/example as user/password credentials
+services:
+  node:
+    build: ./node/
+    container_name: node
+    environment:
+      IS_DOCKER: 1
+  python-api:
+    build: ./python/
+    container_name: python
+    environment:
+      IS_DOCKER: 1
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./sql:/home/mysql
+
