@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 async function LoginReq(username,password) {
-    let authResponse = await axios.post("http://127.0.0.1:5000/Login",
+    let authResponse = await axios.post("python-api:5000/Login",
     {
         UserName:username,
         Password:password

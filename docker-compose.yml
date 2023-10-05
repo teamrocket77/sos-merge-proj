@@ -1,18 +1,21 @@
 # Use root/example as user/password credentials
 services:
-  client:
-    build: ./frontend/
-    container_name: node
-    environment:
-      IS_DOCKER: 1
   server:
     build: ./frontend/
     container_name: node
+    command: node Server/app.js
+    volumes:
+      - ./frontend/:/SSO/code/
+    ports:
+      - "3000:3000"
     environment:
       IS_DOCKER: 1
   python-api:
-    build: ./PythonServer//
+    build: ./PythonServer/
     container_name: python
+    volumes:
+      - ./PythonServer/:/SSO/code/
+    command: python main.py
     environment:
       IS_DOCKER: 1
   db:
@@ -22,4 +25,3 @@ services:
       MYSQL_ROOT_PASSWORD: example
     volumes:
       - ./sql:/home/mysql
-
