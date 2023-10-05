@@ -4,6 +4,6 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 WORKDIR /SSO
 RUN mkdir -p /root/.ssh/
-RUN git clone https://github.com/davidkenesaw/SSO-API.git
-RUN python -m pip install -r SSO-API/reqs.txt
+COPY . .
+RUN python -m pip install -r reqs.txt
 
