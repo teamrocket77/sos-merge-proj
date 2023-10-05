@@ -1,12 +1,17 @@
 # Use root/example as user/password credentials
 services:
-  node:
-    build: ./node/
+  client:
+    build: ./frontend/
+    container_name: node
+    environment:
+      IS_DOCKER: 1
+  server:
+    build: ./frontend/
     container_name: node
     environment:
       IS_DOCKER: 1
   python-api:
-    build: ./python/
+    build: ./PythonServer//
     container_name: python
     environment:
       IS_DOCKER: 1
